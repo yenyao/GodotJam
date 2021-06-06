@@ -3,8 +3,8 @@
 [ext_resource path="res://Assets/icon.png" type="Texture" id=1]
 [ext_resource path="res://src/actors/player.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 27.4015, 28.0146 )
+[sub_resource type="CircleShape2D" id=1]
+radius = 30.8665
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 2 )

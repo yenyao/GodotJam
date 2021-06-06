@@ -10,12 +10,12 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
 
 config/name="Gittest"
+run/main_scene="res://src/Levels/FirstScene.tscn"
 config/icon="res://Assets/icon.png"
 
 [input]

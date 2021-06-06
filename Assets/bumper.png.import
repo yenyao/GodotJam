@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bumper.png-03ae36901329a65e631642bbd8869da5.stex"
+path="res://.import/bumper.png-0ff43503e590411a96b6a2e365bc63bd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/start-assets/bumper.png"
-dest_files=[ "res://.import/bumper.png-03ae36901329a65e631642bbd8869da5.stex" ]
+source_file="res://Assets/bumper.png"
+dest_files=[ "res://.import/bumper.png-0ff43503e590411a96b6a2e365bc63bd.stex" ]
 
 [params]
 
