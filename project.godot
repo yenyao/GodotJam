@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Gittest"
-config/icon="res://icon.png"
+config/icon="res://Assets/icon.png"
 
 [input]
 
