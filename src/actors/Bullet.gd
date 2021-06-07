@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-var velocity = Vector2(500,-100)
+var velocity = Vector2(0, 0)
+
 
 func _ready():
 	rotation =  get_angle(velocity)

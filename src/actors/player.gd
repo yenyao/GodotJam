@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
+signal shoot(bullet, rotation, location)
+
 export var speed = 100
 var velocity = Vector2(0,0)
 var direction = Vector2(0,0)
-
+const Bullet = preload("res://src/actors/Bullet.tscn")
 
 func _physics_process(_delta):
 	velocity = move_player()
@@ -11,6 +13,7 @@ func _physics_process(_delta):
 func _process(_delta):
 	# Player faces mouse cursor
 	look_at(get_global_mouse_position())
+	shoot()
 
 
 # Moves player in 4 directions
@@ -20,5 +23,18 @@ func move_player():
 	velocity = speed * direction.normalized()
 	return move_and_slide(velocity)
 
+func shoot():
+	if Input.is_action_just_pressed("shoot"):
+		emit_signal("shoot", Bullet, rotation, position)
+
+
 func _on_Area2D_body_entered(body):
 	print(body.name)
+
+
+func _on_Player_shoot(Bullet, direction, location):
+	var bullet = Bullet.instance()
+	add_child(bullet)
+	bullet.rotation = direction
+	bullet.position = location
+	bullet.velocity = bullet.velocity.rotated(direction)
