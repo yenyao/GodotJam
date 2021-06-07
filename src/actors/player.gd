@@ -1,14 +1,14 @@
 extends KinematicBody2D
 
-export var speed = 10000
+export var speed = 100
 var velocity = Vector2(0,0)
 var direction = Vector2(0,0)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity = move_player()
 
-func _process(delta):
+func _process(_delta):
 	# Player faces mouse cursor
 	look_at(get_global_mouse_position())
 
@@ -17,5 +17,5 @@ func _process(delta):
 func move_player():
 	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	velocity = speed * get_physics_process_delta_time() * direction.normalized()
+	velocity = speed * direction.normalized()
 	return move_and_slide(velocity)
