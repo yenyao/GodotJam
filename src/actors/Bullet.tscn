@@ -7,6 +7,8 @@
 radius = 34.4002
 
 [node name="Bullet" type="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="coin" type="Sprite" parent="."]

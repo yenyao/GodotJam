@@ -19,3 +19,6 @@ func move_player():
 	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	velocity = speed * direction.normalized()
 	return move_and_slide(velocity)
+
+func _on_Area2D_body_entered(body):
+	print(body.name)
