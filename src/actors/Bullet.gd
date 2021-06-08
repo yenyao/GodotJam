@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-var velocity = Vector2(0, 0)
-
+var velocity = Vector2(1000, 0)
+const MAX_BOUNCE = 3
+var bounce = 0
 
 func _ready():
 	rotation =  get_angle(velocity)
@@ -15,6 +16,10 @@ func move_bullet():
 	#print(collision)
 
 	if collision:
+		bounce += 1
+		if bounce >= MAX_BOUNCE:
+			queue_free()
+			return
 		velocity = velocity.bounce(collision.normal)
 		rotation =  get_angle(velocity)
 

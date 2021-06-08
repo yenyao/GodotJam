@@ -26,15 +26,10 @@ func move_player():
 func shoot():
 	if Input.is_action_just_pressed("shoot"):
 		emit_signal("shoot", Bullet, rotation, position)
+		print("rotation: ")
+		print(rotation)
 
 
 func _on_Area2D_body_entered(body):
-	print(body.name)
-
-
-func _on_Player_shoot(Bullet, direction, location):
-	var bullet = Bullet.instance()
-	add_child(bullet)
-	bullet.rotation = direction
-	bullet.position = location
-	bullet.velocity = bullet.velocity.rotated(direction)
+	#print(body.name)
+	print(" ")
