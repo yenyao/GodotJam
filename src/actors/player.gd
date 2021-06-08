@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-signal shoot(bullet, rotation, location)
+signal shoot(bullet, velocity, location)
 
 export var speed = 100
 var velocity = Vector2(0,0)
@@ -25,11 +25,12 @@ func move_player():
 
 func shoot():
 	if Input.is_action_just_pressed("shoot"):
-		emit_signal("shoot", Bullet, rotation, position)
-		print("rotation: ")
-		print(rotation)
+		var bullet = Bullet.instance()
+		bullet.velocity = Vector2.UP.rotated(rotation + PI/2) * 1000
+		bullet.rotation = bullet.velocity.angle()
+		bullet.position = position
 
+		emit_signal("shoot", bullet)
 
 func _on_Area2D_body_entered(body):
-	#print(body.name)
-	print(" ")
+	print(body.name)

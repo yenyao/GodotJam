@@ -1,9 +1,5 @@
 extends Node2D
 
-
-func _on_Player_shoot(Bullet, direction, location):
-	var bullet = Bullet.instance()
+func _on_Player_shoot(bullet):
+	bullet.velocity *= 0.5
 	add_child(bullet)
-	bullet.rotation = direction
-	bullet.position = location
-	bullet.velocity = bullet.velocity.rotated(direction)
