@@ -16,3 +16,8 @@ func move_enemy():
 		return move_and_slide(velocity)
 
 
+
+
+func _on_BulletDetector_body_entered(body):
+	queue_free()
+	body.queue_free()
