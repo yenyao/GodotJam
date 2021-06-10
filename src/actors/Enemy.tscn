@@ -10,6 +10,8 @@ extents = Vector2( 50.7115, 38.2516 )
 extents = Vector2( 45.939, 34.8252 )
 
 [node name="Enemy" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="bumper" type="Sprite" parent="."]

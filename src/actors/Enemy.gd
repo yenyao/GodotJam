@@ -10,10 +10,12 @@ func _physics_process(delta):
 	velocity = move_enemy()
 
 func move_enemy():
-	if target != null:
+	if target != null and is_instance_valid(target):
 		direction = (target.position - position).normalized()
 		velocity = speed * direction
 		return move_and_slide(velocity)
+	if !is_instance_valid(target):
+		target = null 
 
 
 

@@ -33,4 +33,4 @@ func shoot():
 		emit_signal("shoot", bullet)
 
 func _on_Area2D_body_entered(body):
-	print(body.name)
+	queue_free()
