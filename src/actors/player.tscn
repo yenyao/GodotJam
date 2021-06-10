@@ -23,6 +23,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="BulletDetector" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 8
 
 [node name="BulletDetectorShape" type="CollisionShape2D" parent="BulletDetector"]
@@ -34,6 +35,6 @@ collision_mask = 2
 
 [node name="EnemyDetectorShape" type="CollisionShape2D" parent="EnemyDetector"]
 shape = SubResource( 3 )
-
+[connection signal="body_entered" from="BulletDetector" to="." method="_on_BulletDetector_body_entered"]
 [connection signal="body_entered" from="BulletDetector" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="EnemyDetector" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]

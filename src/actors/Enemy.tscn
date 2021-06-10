@@ -26,5 +26,4 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletDetector"]
 shape = SubResource( 2 )
-
 [connection signal="body_entered" from="BulletDetector" to="." method="_on_BulletDetector_body_entered"]

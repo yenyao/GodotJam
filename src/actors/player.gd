@@ -1,10 +1,12 @@
 extends KinematicBody2D
 
 signal shoot(bullet, velocity, location)
+signal health_changed(lives)
 
 export var speed = 100
 var velocity = Vector2(0,0)
 var direction = Vector2(0,0)
+var lives = 3
 const Bullet = preload("res://src/actors/Bullet.tscn")
 
 func _physics_process(_delta):
@@ -28,9 +30,23 @@ func shoot():
 		var bullet = Bullet.instance()
 		bullet.velocity = Vector2.UP.rotated(rotation + PI/2) * 1000
 		bullet.rotation = bullet.velocity.angle()
-		bullet.position = position
+		bullet.position = position + bullet.velocity.normalized() * 70
 
 		emit_signal("shoot", bullet)
 
-func _on_Area2D_body_entered(body):
-	queue_free()
+func get_hurt():
+	lives -= 1
+	emit_signal("health_changed", lives)
+	if lives <= 0:
+		queue_free()
+
+
+
+func _on_EnemyDetector_body_entered(body):
+	get_hurt()
+
+
+func _on_BulletDetector_body_entered(body):
+	get_hurt()
+	body.queue_free()
+	
