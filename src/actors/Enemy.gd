@@ -37,8 +37,8 @@ func _on_BulletDetector_body_entered(body):
 	queue_free()
 	body.queue_free()
 
-func knock_back():
-	direction = direction.rotated(PI)
+func knock_back(trigger_position):
+	direction = (position - trigger_position).normalized()
 	velocity = direction * knockback_speed
 	knockback_time = 0
 	mode = Modes.KNOCKBACK

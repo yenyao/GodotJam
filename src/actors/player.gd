@@ -17,7 +17,6 @@ func _process(_delta):
 	look_at(get_global_mouse_position())
 	shoot()
 
-
 # Moves player in 4 directions
 func move_player():
 	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -42,8 +41,7 @@ func get_hurt():
 
 func _on_EnemyDetector_body_entered(body):
 	get_hurt()
-	body.knock_back()
-
+	body.knock_back(position)
 
 func _on_BulletDetector_body_entered(body):
 	get_hurt()
