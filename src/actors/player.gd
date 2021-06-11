@@ -40,10 +40,9 @@ func get_hurt():
 	if lives <= 0:
 		queue_free()
 
-
-
 func _on_EnemyDetector_body_entered(body):
 	get_hurt()
+	body.knock_back()
 
 
 func _on_BulletDetector_body_entered(body):

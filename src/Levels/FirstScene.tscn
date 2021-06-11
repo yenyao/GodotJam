@@ -10,7 +10,7 @@
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 512, 368 )
+position = Vector2( 249.285, 260.85 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -28,7 +28,7 @@ position = Vector2( 754.084, 255.97 )
 [node name="Enemy" parent="." groups=[
 "Enemies",
 ] instance=ExtResource( 3 )]
-position = Vector2( 296.797, 206.598 )
+position = Vector2( 172.186, 479.631 )
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
 margin_right = 240.0
